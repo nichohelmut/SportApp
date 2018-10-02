@@ -37,47 +37,20 @@
       <type label="SET" length="1" sql="SET" quote=""/>
       <type label="Bit" length="0" sql="bit" quote=""/>
     </group>
-  </datatypes><table x="281" y="152" name="users">
+  </datatypes><table x="267" y="164" name="customers">
   <row name="id" null="1" autoincrement="1">
     <datatype>INTEGER</datatype>
     <default>NULL</default></row>
-  <row name="first_name" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="last_name" null="1" autoincrement="0">
+  <row name="name" null="1" autoincrement="0">
     <datatype>INTEGER</datatype>
     <default>NULL</default></row>
   <row name="email" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="birthday" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="gender" null="1" autoincrement="0">
     <datatype>INTEGER</datatype>
     <default>NULL</default></row>
   <row name="picture" null="1" autoincrement="0">
     <datatype>INTEGER</datatype>
     <default>NULL</default></row>
   <row name="description" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="role" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="availiability" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="sports" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="job" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="hobby" null="1" autoincrement="0">
-    <datatype>INTEGER</datatype>
-    <default>NULL</default></row>
-  <row name="state" null="1" autoincrement="0">
     <datatype>INTEGER</datatype>
     <default>NULL</default></row>
   <row name="newsletter_except" null="1" autoincrement="0">
@@ -87,13 +60,13 @@
     <part>id</part>
   </key>
 </table>
-  <table x="506" y="288" name="requests">
+  <table x="755" y="549" name="requests">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
-    <row name="user_id" null="1" autoincrement="0">
+    <row name="customer_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
-      <default>NULL</default><relation table="users" row="id" />
+      <default>NULL</default><relation table="customers" row="id" />
     </row>
     <row name="trainer_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
@@ -106,15 +79,11 @@
       <part>id</part>
     </key>
   </table>
-  <table x="725" y="120" name="trainers">
+  <table x="891" y="141" name="trainers">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <row name="user_id" null="1" autoincrement="0">
-      <datatype>INTEGER</datatype>
-      <default>NULL</default><relation table="users" row="id" />
-    </row>
-    <row name="review_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <row name="sports" null="1" autoincrement="0">
@@ -123,13 +92,98 @@
     <row name="price" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
-    <row name="location" null="1" autoincrement="0">
+    <row name="training_location" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <row name="time" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <row name="certification" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="availiability" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="name" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="sports" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="picture" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="city" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="585" y="2" name="users">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="email" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="password" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="roles" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="trainer_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default><relation table="trainers" row="id" />
+    </row>
+    <row name="customer_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default><relation table="customers" row="id" />
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="1254" y="514" name="roles">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="708" y="366" name="sports">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="parent_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="name" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="590" y="209" name="sportlers">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="sportler_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default><relation table="trainers" row="id" />
+      <relation table="customers" row="id" />
+    </row>
+    <row name="sport_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default><relation table="sports" row="id" />
+    </row>
+    <row name="sportler_type" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="new field" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <key type="PRIMARY" name="">
