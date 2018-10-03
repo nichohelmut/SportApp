@@ -56,11 +56,14 @@
   <row name="newsletter_except" null="1" autoincrement="0">
     <datatype>INTEGER</datatype>
     <default>NULL</default></row>
+  <row name="social_media" null="1" autoincrement="0">
+    <datatype>INTEGER</datatype>
+    <default>NULL</default></row>
   <key type="PRIMARY" name="">
     <part>id</part>
   </key>
 </table>
-  <table x="755" y="549" name="requests">
+  <table x="621" y="473" name="requests">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
@@ -81,9 +84,6 @@
   </table>
   <table x="891" y="141" name="trainers">
     <row name="id" null="1" autoincrement="1">
-      <datatype>INTEGER</datatype>
-      <default>NULL</default></row>
-    <row name="user_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <row name="sports" null="1" autoincrement="0">
@@ -107,13 +107,13 @@
     <row name="name" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
-    <row name="sports" null="1" autoincrement="0">
-      <datatype>INTEGER</datatype>
-      <default>NULL</default></row>
     <row name="picture" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <row name="city" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default></row>
+    <row name="social_media" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
     <key type="PRIMARY" name="">
@@ -133,27 +133,19 @@
     <row name="roles" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
-    <row name="trainer_id" null="1" autoincrement="0">
-      <datatype>INTEGER</datatype>
-      <default>NULL</default><relation table="trainers" row="id" />
-    </row>
     <row name="customer_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default><relation table="customers" row="id" />
     </row>
-    <key type="PRIMARY" name="">
-      <part>id</part>
-    </key>
-  </table>
-  <table x="1254" y="514" name="roles">
-    <row name="id" null="1" autoincrement="1">
+    <row name="trainer_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
-      <default>NULL</default></row>
+      <default>NULL</default><relation table="trainers" row="id" />
+    </row>
     <key type="PRIMARY" name="">
       <part>id</part>
     </key>
   </table>
-  <table x="708" y="366" name="sports">
+  <table x="740" y="350" name="sports">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default></row>
