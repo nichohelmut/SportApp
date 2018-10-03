@@ -10,10 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_120843) do
+ActiveRecord::Schema.define(version: 2018_10_03_175408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "picture"
+    t.text "description"
+    t.boolean "news_letter_except"
+    t.string "social_media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.boolean "state"
+    t.bigint "customer_id"
+    t.bigint "trainer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_requests_on_customer_id"
+    t.index ["trainer_id"], name: "index_requests_on_trainer_id"
+  end
+
+  create_table "sportlers", force: :cascade do |t|
+    t.string "sportlerpoly_type"
+    t.bigint "sport_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "sportlerpoly_id"
+    t.string "name"
+    t.index ["sport_id"], name: "index_sportlers_on_sport_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.integer "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trainers", force: :cascade do |t|
+    t.string "name"
+    t.string "sports"
+    t.integer "price"
+    t.string "training_location"
+    t.datetime "time"
+    t.string "certification"
+    t.boolean "availiability"
+    t.string "picture"
+    t.string "city"
+    t.string "social_media"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +76,18 @@ ActiveRecord::Schema.define(version: 2018_09_29_120843) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "trainer_id"
+    t.bigint "customer_id"
+    t.string "role", default: "customer"
+    t.index ["customer_id"], name: "index_users_on_customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["trainer_id"], name: "index_users_on_trainer_id"
   end
 
+  add_foreign_key "requests", "customers"
+  add_foreign_key "requests", "trainers"
+  add_foreign_key "sportlers", "sports"
+  add_foreign_key "users", "customers"
+  add_foreign_key "users", "trainers"
 end
