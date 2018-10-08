@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
   has_many :trainers, through: :users
   has_many :requests
 
-  validates :email, format: { with: /\A.*@.*\.com\z/ }, uniqueness: true
+  # validates :email, format: { with: /\A.*@.*\.com\z/ }, uniqueness: true
 
 
 end
