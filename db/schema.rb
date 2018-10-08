@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_175408) do
+ActiveRecord::Schema.define(version: 2018_10_08_192236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_175408) do
 
   create_table "trainers", force: :cascade do |t|
     t.string "name"
-    t.string "sports"
+    t.string "sport_type"
     t.integer "price"
     t.string "training_location"
     t.datetime "time"
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2018_10_03_175408) do
     t.string "social_media"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
