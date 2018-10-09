@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :trainers
-  has_many :customers
+  has_one :trainer
+  has_one :customer
+  has_many :sports, through: :sportlers
 
   validates :role, presence: true, inclusion: { in: %w(customer trainer) }
 

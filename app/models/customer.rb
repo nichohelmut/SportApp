@@ -1,8 +1,6 @@
 class Customer < ApplicationRecord
-  has_many :users
-  has_many :sportlers, as: :sportlerpoly
-  has_many :sports, through: :sportlers, source: :sportlerpoly, source_type: 'Sport'
-  has_many :trainers, through: :users
+  belongs_to :user
+  has_many :trainers, through: :requests
   has_many :requests
 
   validates :email, format: { with: /\A.*@.*\.com\z/ }, uniqueness: true

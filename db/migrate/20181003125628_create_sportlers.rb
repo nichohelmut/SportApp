@@ -1,4 +1,5 @@
 class CreateSportlers < ActiveRecord::Migration[5.2]
+
   def change
     create_table :sportlers do |t|
       t.string :sportler_type
@@ -9,4 +10,5 @@ class CreateSportlers < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+
 end
