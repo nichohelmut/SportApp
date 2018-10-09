@@ -9,9 +9,22 @@
 # db/seeds.rb
 
 require 'faker'
+
+puts 'Creating 30 fake users...'
+30.times do
+roles = %w( customer trainer).shuffle.sample
+  user = User.new(
+    email: Faker::Internet.email,
+    password: 'testtestpassword',
+    role: roles
+  )
+  user.save! end
+puts 'Finnished!'
+
 puts 'Creating 10 fake customers...'
 10.times do
   customer =  Customer.new(
+
     name:         Faker::Football.player,
     email:        Faker::Internet.email,
     description:  Faker::Company.buzzword,
