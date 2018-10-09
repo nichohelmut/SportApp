@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 2018_10_09_190051) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.text "description"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_trainers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
