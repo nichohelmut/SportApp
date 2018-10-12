@@ -1,4 +1,4 @@
 class Sportler < ApplicationRecord
   belongs_to :user
-  belongs_to :sport
+  has_many :sports
 end
