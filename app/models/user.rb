@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
   has_one :trainer
   has_one :customer
-  has_many :sports, through: :sportlers
+  has_one :sportler
+  has_many :sports, through: :sportler
 
   validates :role, presence: true, inclusion: { in: %w(customer trainer) }
 

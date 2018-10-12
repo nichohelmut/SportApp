@@ -10,8 +10,8 @@
 
 require 'faker'
 
-puts 'Creating 30 fake users...'
-30.times do
+puts 'Creating 40 fake users...'
+40.times do
 roles = %w( customer trainer).shuffle.sample
   user = User.new(
     email: Faker::Internet.email,
@@ -28,6 +28,7 @@ puts 'Creating 10 fake customers...'
     name:         Faker::Football.player,
     email:        Faker::Internet.email,
     description:  Faker::Company.buzzword,
+    user_id:      User.where(role: 'customer').sample.id
   )
   customer.save! end
 puts 'Finished!'
@@ -46,7 +47,8 @@ location = %w( flat park fitness school ).shuffle.sample
     availiability: 'availiable',
     sport_type:         type,
     certification:  Faker::Football.team,
-    training_location: location
+    training_location: location,
+    user_id:        User.where(role: 'trainer').sample.id
   )
   trainer.save! end
 puts 'Finished!'
