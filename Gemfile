@@ -20,6 +20,7 @@ gem 'faker'
 gem 'haml'
 
 group :development do
+  gem 'rubocop', require: false
   gem 'web-console', '>= 3.3.0'
 end
 
@@ -27,6 +28,8 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'

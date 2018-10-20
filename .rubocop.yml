@@ -1,41 +1,82 @@
 AllCops:
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.5
+  Include:
+  - '**/Gemfile'
+  - '**/Rakefile'
   Exclude:
-    - 'bin/**/*'
-    - 'db/**/*'
-    - 'config/**/*'
-    - 'node_modules/**/*'
-    - 'script/**/*'
-    - 'support/**/*'
-    - 'tmp/**/*'
-    - 'test/**/*'
+  - 'bin/*'
+  - 'db/schema.rb'
+  - 'vendor/bundle/**/*'
 
-ConditionalAssignment:
+Rails:
+  Enabled: true
+Rails/FilePath:
   Enabled: false
-StringLiterals:
+Rails/SkipsModelValidations:
   Enabled: false
-RedundantReturn:
+
+Metrics/LineLength:
+  Max: 120
+Metrics/AbcSize:
+  Max: 20
+Metrics/ClassLength:
+  Max: 250
+Metrics/ModuleLength:
+  Max: 250
+Metrics/MethodLength:
   Enabled: false
-Documentation:
+  Max: 100
+Metrics/BlockLength:
   Enabled: false
-WordArray:
+Metrics/CyclomaticComplexity:
   Enabled: false
-AbcSize:
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+Layout/EmptyLineAfterGuardClause:
   Enabled: false
-MutableConstant:
+
+Style/ClassAndModuleChildren:
   Enabled: false
-SignalException:
+Style/DocumentationMethod:
   Enabled: false
-Casecmp:
+Style/Documentation:
   Enabled: false
-CyclomaticComplexity:
-  Enabled: false
-MethodMissing:
+Style/CommentAnnotation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
-LineLength:
-  Max: 120
 Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/LambdaCall:
+  EnforcedStyle: braces
+Style/Lambda:
+  EnforcedStyle: literal
+Style/BlockDelimiters:
   Enabled: false
+Style/PercentLiteralDelimiters:
+  # Specify the default preferred delimiter for all types with the 'default' key
+  # Override individual delimiters (even with default specified) by specifying an individual key
+  PreferredDelimiters:
+    default: ()
+    '%i': '()'
+    '%I': '()'
+    '%r': '{}'
+    '%w': '()'
+    '%W': '()'
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+  AllowInnerSlashes: false
+
 Bundler/OrderedGems:
   Enabled: false
