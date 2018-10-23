@@ -11,4 +11,12 @@ class User < ApplicationRecord
 
   validates :role, presence: true, inclusion: { in: %w(customer trainer) }
 
+  def self.current
+    Thread.current[:user]
+  end
+
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
+
 end

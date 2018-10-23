@@ -4,4 +4,7 @@
 = @trainer.training_location
 = @trainer.city
 = @trainer.availiability
--#= link_to 'Book', user_trainers_path
+
+= simple_form_for Request.new, url: user_trainer_requests_path(@trainer.user_id, @trainer) do |f|
+  = f.input :trainer_id, as: :hidden, input_html: { value: @trainer }
+  = f.submit 'Book', class: 'btn-submit'

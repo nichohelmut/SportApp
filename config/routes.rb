@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :trainers, :customers, only: [ :index, :show, :edit, :update, :destroy ] do
-      resources :requests, only: [ :index, :new, :create, :destroy ]
+      resources :requests, only: [ :index, :show, :new, :create, :destroy ]
     end
 
     resources :sportlers, only: [ :index, :new, :create, :destroy ] do
