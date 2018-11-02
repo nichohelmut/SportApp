@@ -19,8 +19,7 @@ class RequestsController < ApplicationController
     @request.customer_id = current_user.customer.id
     @request.trainer_id = @trainer.id
     @request.save
-    raise
-    redirect_to user_trainer_request_path(@request.trainer_id, @request)
+    redirect_to trainer_request_path(@request.trainer_id, @request)
   end
 
   private

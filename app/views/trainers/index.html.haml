@@ -1,4 +1,4 @@
 - @trainers.each do |trainer|
-  = link_to trainer.name, user_trainer_path(trainer.user_id, trainer.id)
+  = link_to trainer.name, trainer_path(trainer)
   = trainer.city
   = trainer.sport_type
