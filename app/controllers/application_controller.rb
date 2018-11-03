@@ -5,4 +5,14 @@ class ApplicationController < ActionController::Base
   def set_current_user
     User.current = current_user
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.customer
+      trainer_request_path(resource.customer.requests.last.trainer.id, resource.customer.requests.last.id)
+    else
+      root_path
+    end
+  end
+
+
 end
