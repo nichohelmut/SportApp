@@ -10,12 +10,12 @@
 
 require 'faker'
 
-puts 'Creating 40 fake users...'
-40.times do
+puts 'Creating 20 fake users...'
+20.times do
 roles = %w( customer trainer).shuffle.sample
   user = User.new(
     email: Faker::Internet.email,
-    password: 'testtestpassword',
+    password: '123456',
     role: roles
   )
   user.save! end
@@ -35,8 +35,7 @@ puts 'Finished!'
 
 puts 'Creating 10 fake trainers...'
 10.times do
-type = ['Sport Specific Training', 'General Fitness', 'Muscle Tonning', 'Speed - Conditioning',
-  'Contest Preparation'].shuffle.sample
+type = %w(Cardio Yoga Tabata Reha Weight).shuffle.sample
 location = %w( flat park fitness school ).shuffle.sample
   trainer = Trainer.new(
     name:           Faker::Football.coach,
