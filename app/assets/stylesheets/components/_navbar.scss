@@ -10,11 +10,6 @@
   justify-content: space-between;
 }
 
-/* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
-}
-
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
@@ -23,7 +18,7 @@
 }
 
 /* Right section */
-.navbar-wagon-right {
+.navbar-wagon-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,16 +57,4 @@
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
   color: black !important;
-}
-.navbar-wagon-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
 }

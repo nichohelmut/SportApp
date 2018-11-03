@@ -5,6 +5,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     if resource.save
       @customer         = Customer.new
       @customer.user_id = resource.id
+      @customer.email = resource.email
       @customer.save
     end
   end

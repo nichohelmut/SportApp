@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
 
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_customer, only: %i[show edit update]
 
   def index
     @user = current_user
@@ -8,7 +9,6 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
   end
 
   def new
@@ -24,10 +24,26 @@ class CustomersController < ApplicationController
     end
   end
 
+  def edit
+  end
 
-  # private
+  def update
+    @customer.update(params[:customer])
+    if @customer.update(customer_params)
+      redirect_to customer_path(@customer)
+    else
+      render :edit
+    end
+  end
 
-  # def customer_params
-  #   params.require(:customer).permit(:user, :name)
-  # end
+  private
+
+  def set_customer
+    @customer = Customer.find(params[:id])
+  end
+
+  def customer_params
+    params.require(:customer).permit( :name, :email, :description, :picture)
+  end
+
 end

@@ -1,10 +1,12 @@
-= @trainer.name
-= @trainer.sport_type
-= @trainer.price
-= @trainer.training_location
-= @trainer.city
-= @trainer.availiability
+%ul
+  = @trainer.name
+  = @trainer.sport_type
+  = @trainer.price
+  = @trainer.training_location
+  = @trainer.city
+  = @trainer.availiability
 
-= simple_form_for Request.new, url: trainer_requests_path(@trainer) do |f|
-  = f.input :trainer_id, as: :hidden, input_html: { value: @trainer }
-  = f.submit 'Book', class: 'btn-submit'
+%ul
+  = simple_form_for Request.new, url: trainer_requests_path(@trainer) do |f|
+    = f.input :trainer_id, as: :hidden, input_html: { value: @trainer }
+    = f.submit 'Book', class: 'btn-success'
