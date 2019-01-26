@@ -255,6 +255,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   bootstrap-sass (~> 3.3)
+  bundler
   devise
   dotenv-rails
   factory_bot_rails
